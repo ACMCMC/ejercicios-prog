@@ -44,7 +44,7 @@ float* prodEscalar(vector u, vector v)
     return resultado;
 }
 
-int main()
+int main(int argc, char** argv)
 {
     FILE *fp;
     vector u, v;
@@ -52,9 +52,15 @@ int main()
     int opcion;
     vector *resultadoSuma;
     float *resultadoProducto;
-    fp = fopen("datos_prod.txt", "r");
-    if (fp == NULL)
-        printf("ERRO abrindo o arquivo");
+    if (argc != 2) {
+        printf("Tienes que especificar el argumento del nombre del fichero\n");
+        exit (EXIT_FAILURE);
+    }
+    fp = fopen(*(argv + 1), "r");
+    if (fp == NULL) {
+        printf("ERRO abrindo o arquivo\n");
+        exit(EXIT_FAILURE);
+    }
     else
     {
         fscanf(fp, "%d", &(u.tamano));
@@ -123,5 +129,5 @@ int main()
         fclose(fp);
     }
 
-    return 0;
+    exit(EXIT_SUCCESS);
 }
