@@ -1,0 +1,4 @@
+#define ROL_ESTUDIANTE 'E'
+#define ROL_ESTUDIANTE 'I'
+#define NUM_TAREAS 5
+#define LONG_NOMBRE_TAREA 15
