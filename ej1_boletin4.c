@@ -1,27 +1,19 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int y = 6;
+int main(int argc, char** argv) {
 
-int main() {
-    int i = 23;
-    double d = 10.0;
-    char cadena[] = {'H','o','l','a','\0'};
+    if (argc!=4) {
+        printf("Error, hay que especificar los argumentos. Uso correcto: %s [tamaño] [paso] [numero de busquedas]\n", argv[0]);
+        exit(EXIT_FAILURE);
+    }
 
-    printf("Tamaño de un int: %lu, tamaño de un double: %lu\n", sizeof(int), sizeof(double));
+    int tam_max = atoi(argv[1]);
+    printf("%d\n", tam_max);
 
-    printf("El valor de y es: %d\n", y);
-    printf("La direccion de memoria de y es: %p\n", &y);
-
-    printf("El valor de i es: %d\n", i);
-    printf("La direccion de memoria de i es: %p\n", &i);
-
-    printf("El valor de d es %lf\n", d);
-    printf("La direccion de memoria de d es %p\n", &d);
-
-
-    printf("Cadena: %s\n", cadena);
-    printf("La direccion de la cadena es %p", cadena);
+    for (int i = 0; i < argc; i++) {
+        printf("Argumento %d: %s\n",i, argv[i]);
+    }
 
     return 0;
 }
